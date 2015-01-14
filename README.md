@@ -1,3 +1,1 @@
-# classes-experiment
-Program for the SAMS Teach Yourself C++ in 21 Days
-The program code can be found in the file named exerciseOneUpdate.cpp
+These are a series of programs that I have written. You may use them if you like.
