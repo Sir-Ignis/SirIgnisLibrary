@@ -93,6 +93,11 @@ void checkMove(vector <vector <int> > & boardPosition, unsigned int row, unsigne
       cout << "There is already an opponents piece here!" << endl;
       getPlayerMove(boardPosition);
     }
+  else if(boardPosition[row][column] == 1)
+    {
+      cout << "You have already placed a piece here!" << endl;
+      getPlayerMove(boardPosition);
+    }
 }
 
 bool getPlayerMove(vector <vector <int> > & boardPosition)
@@ -111,9 +116,8 @@ bool getPlayerMove(vector <vector <int> > & boardPosition)
   if( (row < 0 || row > 2) || (column < 0 || column > 2) ) cout << "Error!" << endl;
     }
   while( (row < 0 || row > 2) || (column < 0 || column > 2) );
-
-  boardPosition[row][column] = 1;
   checkMove(boardPosition, row, column);
+  boardPosition[row][column] = 1;
 }
 
 bool getComputerMove(vector <vector <int> > & boardPosition)
