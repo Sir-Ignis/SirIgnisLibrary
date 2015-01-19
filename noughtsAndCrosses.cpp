@@ -69,21 +69,38 @@ int main()
   return 0;    
 }
 
+// sexy print board functions are property of nnemesis
+char getCharacter(int boardPosition)
+{
+  if (boardPosition == 0)
+  {
+    return '=';
+  }
+  else if (boardPosition == 1)
+  {
+    return 'X';
+  }
+  else if (boardPosition == 2)
+  {
+    return '0';
+  }
+}
+
 void printBoard(vector <vector <int> > & boardPosition)
 {
   cout << "\n";
-  cout << boardPosition[0][0];
-  cout << boardPosition[0][1];
-  cout << boardPosition[0][2];
-  cout << "\n";
-  cout << boardPosition[1][0];
-  cout << boardPosition[1][1];
-  cout << boardPosition[1][2];
-  cout <<"\n";
-  cout << boardPosition[2][0];
-  cout << boardPosition[2][1];
-  cout << boardPosition[2][2];
-  cout << "\n";
+  cout << " " << getCharacter(boardPosition[0][0]);
+  cout << " " << getCharacter(boardPosition[0][1]);
+  cout << " " << getCharacter(boardPosition[0][2]);
+  cout << "\n\n";
+  cout << " " << getCharacter(boardPosition[1][0]);
+  cout << " " << getCharacter(boardPosition[1][1]);
+  cout << " " << getCharacter(boardPosition[1][2]);
+  cout <<"\n\n";
+  cout << " " << getCharacter(boardPosition[2][0]);
+  cout << " " << getCharacter(boardPosition[2][1]);
+  cout << " " << getCharacter(boardPosition[2][2]);
+  cout << "\n\n";
 }
 
 void checkMove(vector <vector <int> > & boardPosition, unsigned int row, unsigned int column)
