@@ -60,6 +60,8 @@ int main()
     }
   while(gameOver == false);
 
+  printBoard(boardPosition);
+
   if ((gameOver == true) && (player == 1)) 
     {
       cout << "Game over! You won!" << endl;
@@ -220,13 +222,13 @@ bool checkBoardColumnOne(vector <vector <int> > & boardPosition, bool & gameOver
 {
   if((boardPosition[0][0] == 1) && (boardPosition[1][0] == 1) && (boardPosition[2][0] == 1 ))
     {
-      return gameOver = true;
       player = 1;
+      return gameOver = true;
     }     
   else if((boardPosition[0][0] == 2) && (boardPosition[1][0] == 2) && (boardPosition[2][0] == 2 ))
     {
-      return gameOver = true;
       player = 0;
+      return gameOver = true;
     } 	 
 }
 
@@ -235,13 +237,13 @@ bool checkBoardColumnTwo(vector <vector <int> > & boardPosition, bool & gameOver
 {
   if((boardPosition[0][1] == 1) && (boardPosition[1][1] == 1) && (boardPosition[2][1] == 1))
     {
-      return gameOver = true;
       player = 1;
+      return gameOver = true;
     }
   else if((boardPosition[0][1] == 2) && (boardPosition[1][1] == 2) && (boardPosition[2][1] == 2))
     {
-      return gameOver = true;
       player = 0;
+      return gameOver = true;
     }
 }
 
@@ -249,13 +251,13 @@ bool checkBoardColumnThree(vector <vector <int> > & boardPosition, bool & gameOv
 {
   if((boardPosition[0][2] == 1) && (boardPosition[1][2] == 1) && (boardPosition[2][2] == 1))
     {
-      return gameOver = true;
       player = 1;
+      return gameOver = true;
     }
   else if((boardPosition[0][2] == 2) && (boardPosition[1][2] == 2) && (boardPosition[2][2] == 2))
     {
-      return gameOver = true;
       player = 0;
+      return gameOver = true;
     }
 }
 
@@ -263,13 +265,13 @@ bool checkBoardRowOne(vector <vector <int> > & boardPosition, bool & gameOver, b
 {
   if((boardPosition[0][0] == 1) && (boardPosition[0][1] == 1) && (boardPosition[0][2] == 1))
     {
-      return gameOver = true;
       player = 1;
+      return gameOver = true;
     } 
      else if((boardPosition[0][0] == 2) && (boardPosition[0][1] == 2) && (boardPosition[0][2] == 2))
     {
-      return gameOver = true;
       player = 0;
+      return gameOver = true;
     }
 }
 
@@ -277,13 +279,13 @@ bool checkBoardRowTwo(vector <vector <int> > & boardPosition, bool & gameOver, b
 {
    if((boardPosition[1][0] == 1) && (boardPosition[1][1] == 1) && (boardPosition[1][2] == 1))
     {
-      return gameOver = true;
       player = 1;
+      return gameOver = true;
     } 
    if((boardPosition[1][0] == 2) && (boardPosition[1][1] == 2) && (boardPosition[1][2] == 2))
     {
-      return gameOver = true;
       player = 0;
+      return gameOver = true;
     }
 }
 
@@ -291,13 +293,13 @@ bool checkBoardRowThree(vector <vector <int> > & boardPosition, bool & gameOver,
 {
    if((boardPosition[2][0] == 1) && (boardPosition[2][1] == 1) && (boardPosition[2][2] == 1))
     {
-      return gameOver = true;
       player = 1;
+      return gameOver = true;
     }
    else if((boardPosition[2][0] == 2) && (boardPosition[2][1] == 2) && (boardPosition[2][2] == 2))
     {
-      return gameOver = true;
       player = 0;
+      return gameOver = true;
     }
 }
 
@@ -305,13 +307,13 @@ bool checkBoardDiagonalLeft(vector <vector <int> > & boardPosition, bool & gameO
 {
    if((boardPosition[0][0] == 1) && (boardPosition[1][1] == 1) && (boardPosition[2][2] == 1))
     {
-      return gameOver = true;
       player = 1;
+      return gameOver = true;
     } 
    else if((boardPosition[0][0] == 2) && (boardPosition[1][1] == 2) && (boardPosition[2][2] == 2))
     {
-      return gameOver = true;
       player = 0;
+      return gameOver = true;
     }
 }
 
@@ -319,12 +321,12 @@ bool checkBoardDiagonalRight(vector <vector <int> > & boardPosition, bool & game
 {
    if((boardPosition[0][2] == 1) && (boardPosition[1][1] == 1) && (boardPosition[2][0] == 1))
     {
-      return gameOver = true;
       player = 1;
+      return gameOver = true;
     } 
    else if((boardPosition[0][2] == 2) && (boardPosition[1][1] == 2) && (boardPosition[2][0] == 2))
     {
-      return gameOver = true;
       player = 0;
+      return gameOver = true;
     } 
 }
