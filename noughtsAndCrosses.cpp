@@ -143,6 +143,8 @@ bool getComputerMove(vector <vector <int> > & boardPosition, bool placed)
 {
   computerAI(boardPosition, placed);
 
+  if (placed == false)
+    {
   if(boardPosition[1][1] == 0) boardPosition[1][1] = 2;
 
   else if (boardPosition[1][0] == 0) boardPosition[1][0] = 2;
@@ -160,6 +162,7 @@ bool getComputerMove(vector <vector <int> > & boardPosition, bool placed)
   else if (boardPosition[2][0] == 0) boardPosition[2][0] = 2;
 
   else if (boardPosition[2][2] == 0) boardPosition[2][2] = 2;
+    }
 }
 
 void computerAI(vector <vector <int> > & boardPosition, bool & placed)
