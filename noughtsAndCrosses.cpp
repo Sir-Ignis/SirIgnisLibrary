@@ -206,14 +206,49 @@ void computerAI(vector <vector <int> > & boardPosition, bool & placed)
        if (boardPosition[0][2] == 0) boardPosition[0][2] = 2;
        placed = true; 
     }
+  else if((boardPosition[0][0] == 1) && (boardPosition[1][0] == 1)) //a+b = c
+    {
+       if (boardPosition[2][0] == 0) boardPosition[2][0] = 2;
+       placed = true; 
+    }
+  else if((boardPosition[0][0] == 1) && (boardPosition[2][0] == 1)) //a+c = b
+    {
+       if (boardPosition[0][1] == 0) boardPosition[0][1] = 2;
+       placed = true; 
+    }
   else if((boardPosition[1][0] == 1) && (boardPosition[1][1] == 1)) //b+e = h
     {
        if (boardPosition[1][2] == 0) boardPosition[1][2] = 2;
        placed = true; 
     }
+  else if((boardPosition[1][0] == 1) && (boardPosition[2][0] == 1)) //b+c = a
+    {
+       if (boardPosition[0][0] == 0) boardPosition[0][0] = 2;
+       placed = true; 
+    }
+  else if((boardPosition[1][0] == 1) && (boardPosition[1][2] == 1)) //b+h = e
+    {
+       if (boardPosition[1][1] == 0) boardPosition[1][1] = 2;
+       placed = true; 
+    }
   else if((boardPosition[2][0] == 1) && (boardPosition[2][1] == 1)) //c+f = i
     {
        if (boardPosition[2][2] == 0) boardPosition[2][2] = 2;
+       placed = true; 
+    }
+  else if((boardPosition[2][0] == 1) && (boardPosition[2][2] == 1)) //c+i = f
+    {
+       if (boardPosition[2][1] == 0) boardPosition[2][1] = 2;
+       placed = true; 
+    }
+  else if((boardPosition[2][0] == 1) && (boardPosition[1][1] == 1)) //c+e = g
+    {
+       if (boardPosition[0][2] == 0) boardPosition[0][2] = 2;
+       placed = true; 
+    }
+  else if((boardPosition[2][1] == 1) && (boardPosition[1][1] == 1)) //f+e = d
+    {
+       if (boardPosition[0][1] == 0) boardPosition[0][1] = 2;
        placed = true; 
     }
   else if((boardPosition[0][0] == 1) && (boardPosition[1][1] == 1)) //a+e = i
@@ -224,6 +259,36 @@ void computerAI(vector <vector <int> > & boardPosition, bool & placed)
   else if((boardPosition[0][2] == 1) && (boardPosition[1][1] == 1)) //g+e = c
     {
        if (boardPosition[2][0] == 0) boardPosition[2][0] = 2;
+       placed = true; 
+    }
+  else if((boardPosition[0][2] == 1) && (boardPosition[2][0] == 1)) //g+c = e
+    {
+       if (boardPosition[1][1] == 0) boardPosition[1][1] = 2;
+       placed = true; 
+    }
+  else if((boardPosition[1][2] == 1) && (boardPosition[1][1] == 1)) //h+e = b
+    {
+       if (boardPosition[1][0] == 0) boardPosition[1][0] = 2;
+       placed = true; 
+    }
+  else if((boardPosition[1][2] == 1) && (boardPosition[2][2] == 1)) //h+i = g
+    {
+       if (boardPosition[2][0] == 0) boardPosition[2][0] = 2;
+       placed = true; 
+    }
+  else if((boardPosition[0][2] == 1) && (boardPosition[0][1] == 1)) //g+d = a
+    {
+       if (boardPosition[0][0] == 0) boardPosition[0][0] = 2;
+       placed = true; 
+    }
+  else if((boardPosition[2][2] == 1) && (boardPosition[2][1] == 1)) //i+f = c
+    {
+       if (boardPosition[2][0] == 0) boardPosition[2][0] = 2;
+       placed = true; 
+    }
+  else if((boardPosition[2][2] == 1) && (boardPosition[1][1] == 1)) //i+e = a
+    {
+       if (boardPosition[0][0] == 0) boardPosition[0][0] = 2;
        placed = true; 
     }
 }
