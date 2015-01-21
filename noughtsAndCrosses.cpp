@@ -167,56 +167,61 @@ bool getComputerMove(vector <vector <int> > & boardPosition, bool placed)
     }
 }
 
+
+//a|d|g//
+//b|e|h//
+//c|f|i//
+
 void computerAI(vector <vector <int> > & boardPosition, bool & placed)
 {
   placed = false;
 
-  if((boardPosition[0][0] == 1) && (boardPosition[1][0] == 1)) 
+  if((boardPosition[0][0] == 1) && (boardPosition[1][0] == 1))  // a+d = g
     {
-       if(boardPosition[2][0] == 0) boardPosition[2][0] = 2;
+      if(boardPosition[2][0] == 0) boardPosition[2][0] = 2; 
        placed = true; 
     }  
-  else if((boardPosition[0][0] == 1) && (boardPosition[0][2] == 1))
+  else if((boardPosition[0][0] == 1) && (boardPosition[0][2] == 1)) //a+g = d
     {
        if(boardPosition[0][1] == 0) boardPosition[0][1] = 2;
        placed = true; 
     }
-  else if((boardPosition[0][1] == 1) && (boardPosition[2][1] == 1))
+  else if((boardPosition[0][1] == 1) && (boardPosition[2][1] == 1)) //d+f = e
     {
        if(boardPosition[1][1] == 0) boardPosition[1][1] = 2;
        placed = true; 
     }
-  else  if((boardPosition[0][1] == 1) && (boardPosition[1][1] == 1))
+  else  if((boardPosition[0][1] == 1) && (boardPosition[1][1] == 1)) //d+e = f
     {
        if (boardPosition[2][1] == 0) boardPosition[2][1] = 2;
        placed = true; 
     }
-  else if((boardPosition[0][2] == 1) && (boardPosition[1][2] == 1))
+  else if((boardPosition[0][2] == 1) && (boardPosition[1][2] == 1))  //g+h = i 
     {
        if (boardPosition[2][2] == 0) boardPosition[2][2] = 2;  
        placed = true; 
     } 
-  else if((boardPosition[0][0] == 1) && (boardPosition[0][1] == 1))
+  else if((boardPosition[0][0] == 1) && (boardPosition[0][1] == 1)) //a+b = g
     {
        if (boardPosition[0][2] == 0) boardPosition[0][2] = 2;
        placed = true; 
     }
-  else if((boardPosition[1][0] == 1) && (boardPosition[1][1] == 1))
+  else if((boardPosition[1][0] == 1) && (boardPosition[1][1] == 1)) //b+e = h
     {
        if (boardPosition[1][2] == 0) boardPosition[1][2] = 2;
        placed = true; 
     }
-  else if((boardPosition[2][0] == 1) && (boardPosition[2][1] == 1))
+  else if((boardPosition[2][0] == 1) && (boardPosition[2][1] == 1)) //c+f = i
     {
        if (boardPosition[2][2] == 0) boardPosition[2][2] = 2;
        placed = true; 
     }
-  else if((boardPosition[0][0] == 1) && (boardPosition[1][1] == 1))
+  else if((boardPosition[0][0] == 1) && (boardPosition[1][1] == 1)) //a+e = i
     {
        if (boardPosition[2][2] == 0) boardPosition[2][2] = 2;
        placed = true; 
     }
-  else if((boardPosition[0][2] == 1) && (boardPosition[1][1] == 1))
+  else if((boardPosition[0][2] == 1) && (boardPosition[1][1] == 1)) //g+e = c
     {
        if (boardPosition[2][0] == 0) boardPosition[2][0] = 2;
        placed = true; 
@@ -335,4 +340,5 @@ bool checkBoardDiagonalRight(vector <vector <int> > & boardPosition, bool & game
       return gameOver = true;
     } 
 }
+
 
