@@ -201,7 +201,7 @@ void computerAI(vector <vector <int> > & boardPosition, bool & placed)
        if (boardPosition[2][2] == 0) boardPosition[2][2] = 2;  
        placed = true; 
     } 
-  else if((boardPosition[0][0] == 1) && (boardPosition[0][1] == 1)) //a+b = g
+  else if((boardPosition[0][0] == 1) && (boardPosition[0][1] == 1)) //a+d = g
     {
        if (boardPosition[0][2] == 0) boardPosition[0][2] = 2;
        placed = true; 
