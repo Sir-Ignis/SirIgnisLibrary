@@ -4,6 +4,7 @@ using namespace std;
 
 void printBoard(vector <vector <int> > & boardPosition);
 void checkMove(vector <vector <int> > & boardPosition, unsigned int row, unsigned int column);
+bool checkIfBoardFull(vector <vector <int> > & boardPosition, bool & gameOver);
 
 bool getPlayerMove(vector <vector <int> > & boardPosition);
 bool getComputerMove(vector <vector <int> > & boardPosition, bool & placed);
@@ -57,6 +58,8 @@ int main()
 
       checkBoardDiagonalLeft(boardPosition,gameOver, player);
       checkBoardDiagonalRight(boardPosition,gameOver, player);
+
+      checkIfBoardFull(boardPosition, gameOver);
     }
   while(gameOver == false);
 
@@ -105,6 +108,34 @@ void printBoard(vector <vector <int> > & boardPosition)
   cout << " " << getCharacter(boardPosition[2][1]);
   cout << " " << getCharacter(boardPosition[2][2]);
   cout << "\n\n";
+}
+
+bool checkIfBoardFull(vector <vector <int> > & boardPosition, bool & gameOver)
+{
+  unsigned short int row, column, filled = 0;
+
+  for (row = 0, column = 0; (column != 2) & (row != 2); row++)
+    {
+      if(boardPosition[row][column] != 0)
+	{
+          filled++;
+	}
+      for (;column != 2; column++)
+	{
+          if(boardPosition[row][column] != 0)
+	  {
+            filled++;
+	  }
+	}
+    }
+  if(filled = 9)
+    {
+      return gameOver = true;
+    }
+  else
+    {
+      return gameOver = false;
+    }
 }
 
 void checkMove(vector <vector <int> > & boardPosition, unsigned int row, unsigned int column)
@@ -180,118 +211,187 @@ void computerAI(vector <vector <int> > & boardPosition, bool & placed)
 
   if((boardPosition[0][0] == 1) && (boardPosition[1][0] == 1))  // a+d = g
     {
-      if(boardPosition[2][0] == 0) boardPosition[2][0] = 2; 
-       placed = true; 
+      if(boardPosition[2][0] == 0)
+        {
+	  boardPosition[2][0] = 2;
+         placed = true;
+        } 
     }  
   else if((boardPosition[0][0] == 1) && (boardPosition[0][2] == 1)) //a+g = d
     {
-       if(boardPosition[0][1] == 0) boardPosition[0][1] = 2;
-       placed = true; 
+       if(boardPosition[0][1] == 0) 
+       {
+         boardPosition[0][1] = 2;
+         placed = true;
+       } 
     }
   else if((boardPosition[0][1] == 1) && (boardPosition[2][1] == 1)) //d+f = e
     {
-       if(boardPosition[1][1] == 0) boardPosition[1][1] = 2;
-       placed = true; 
+       if(boardPosition[1][1] == 0)
+       {
+         boardPosition[1][1] = 2;
+         placed = true;
+       } 
     }
   else  if((boardPosition[0][1] == 1) && (boardPosition[1][1] == 1)) //d+e = f
     {
-       if (boardPosition[2][1] == 0) boardPosition[2][1] = 2;
-       placed = true; 
+       if (boardPosition[2][1] == 0) 
+       {
+         boardPosition[2][1] = 2;
+         placed = true;
+       }
     }
   else if((boardPosition[0][2] == 1) && (boardPosition[1][2] == 1))  //g+h = i 
     {
-       if (boardPosition[2][2] == 0) boardPosition[2][2] = 2;  
-       placed = true; 
+       if (boardPosition[2][2] == 0)   
+       {
+         boardPosition[2][2] = 2;
+         placed = true;
+       }
     } 
   else if((boardPosition[0][0] == 1) && (boardPosition[0][1] == 1)) //a+d = g
     {
-       if (boardPosition[0][2] == 0) boardPosition[0][2] = 2;
-       placed = true; 
+       if (boardPosition[0][2] == 0) 
+       {
+         boardPosition[0][2] = 2;
+         placed = true;
+       }
     }
   else if((boardPosition[0][0] == 1) && (boardPosition[1][0] == 1)) //a+b = c
     {
-       if (boardPosition[2][0] == 0) boardPosition[2][0] = 2;
-       placed = true; 
+       if (boardPosition[2][0] == 0) 
+       {
+         boardPosition[2][0] = 2;
+         placed = true;
+       }
     }
   else if((boardPosition[0][0] == 1) && (boardPosition[2][0] == 1)) //a+c = b
     {
-       if (boardPosition[0][1] == 0) boardPosition[0][1] = 2;
-       placed = true; 
+       if (boardPosition[0][1] == 0) 
+       {
+         boardPosition[0][1] = 2;
+         placed = true;
+       }
     }
   else if((boardPosition[1][0] == 1) && (boardPosition[1][1] == 1)) //b+e = h
     {
-       if (boardPosition[1][2] == 0) boardPosition[1][2] = 2;
-       placed = true; 
+       if (boardPosition[1][2] == 0) 
+       {
+         boardPosition[1][2] = 2;
+         placed = true;
+       }
     }
   else if((boardPosition[1][0] == 1) && (boardPosition[2][0] == 1)) //b+c = a
     {
-       if (boardPosition[0][0] == 0) boardPosition[0][0] = 2;
-       placed = true; 
+       if (boardPosition[0][0] == 0) 
+       {
+         boardPosition[0][0] = 2;
+         placed = true;
+       }
     }
   else if((boardPosition[1][0] == 1) && (boardPosition[1][2] == 1)) //b+h = e
     {
-       if (boardPosition[1][1] == 0) boardPosition[1][1] = 2;
-       placed = true; 
+       if (boardPosition[1][1] == 0) 
+       {
+         boardPosition[1][1] = 2;
+         placed = true;
+       }
     }
   else if((boardPosition[2][0] == 1) && (boardPosition[2][1] == 1)) //c+f = i
     {
-       if (boardPosition[2][2] == 0) boardPosition[2][2] = 2;
-       placed = true; 
+       if (boardPosition[2][2] == 0) 
+       {
+         boardPosition[2][2] = 2;
+         placed = true;
+       } 
     }
   else if((boardPosition[2][0] == 1) && (boardPosition[2][2] == 1)) //c+i = f
     {
-       if (boardPosition[2][1] == 0) boardPosition[2][1] = 2;
-       placed = true; 
+       if (boardPosition[2][1] == 0) 
+       {
+         boardPosition[2][1] = 2;
+         placed = true;
+       } 
     }
   else if((boardPosition[2][0] == 1) && (boardPosition[1][1] == 1)) //c+e = g
     {
-       if (boardPosition[0][2] == 0) boardPosition[0][2] = 2;
-       placed = true; 
+       if (boardPosition[0][2] == 0) 
+       {
+         boardPosition[0][2] = 2;
+         placed = true;
+       } 
     }
   else if((boardPosition[2][1] == 1) && (boardPosition[1][1] == 1)) //f+e = d
     {
-       if (boardPosition[0][1] == 0) boardPosition[0][1] = 2;
-       placed = true; 
+       if (boardPosition[0][1] == 0) 
+       {
+         boardPosition[0][1] = 2;
+         placed = true;
+       }
     }
   else if((boardPosition[0][0] == 1) && (boardPosition[1][1] == 1)) //a+e = i
     {
-       if (boardPosition[2][2] == 0) boardPosition[2][2] = 2;
-       placed = true; 
+       if (boardPosition[2][2] == 0) 
+       {
+         boardPosition[2][2] = 2;
+         placed = true;
+       } 
     }
   else if((boardPosition[0][2] == 1) && (boardPosition[1][1] == 1)) //g+e = c
     {
-       if (boardPosition[2][0] == 0) boardPosition[2][0] = 2;
-       placed = true; 
+       if (boardPosition[2][0] == 0) 
+       {
+         boardPosition[2][0] = 2;
+         placed = true;
+       } 
     }
   else if((boardPosition[0][2] == 1) && (boardPosition[2][0] == 1)) //g+c = e
     {
-       if (boardPosition[1][1] == 0) boardPosition[1][1] = 2;
-       placed = true; 
+       if (boardPosition[1][1] == 0) 
+       {
+         boardPosition[1][1] = 2;
+         placed = true;
+       }
     }
   else if((boardPosition[1][2] == 1) && (boardPosition[1][1] == 1)) //h+e = b
     {
-       if (boardPosition[1][0] == 0) boardPosition[1][0] = 2;
-       placed = true; 
+       if (boardPosition[1][0] == 0) 
+       {
+         boardPosition[1][0] = 2;
+         placed = true;
+       } 
     }
   else if((boardPosition[1][2] == 1) && (boardPosition[2][2] == 1)) //h+i = g
     {
-       if (boardPosition[2][0] == 0) boardPosition[2][0] = 2;
-       placed = true; 
+       if (boardPosition[2][0] == 0) 
+       {
+         boardPosition[2][0] = 2;
+         placed = true;
+       }
     }
   else if((boardPosition[0][2] == 1) && (boardPosition[0][1] == 1)) //g+d = a
     {
-       if (boardPosition[0][0] == 0) boardPosition[0][0] = 2;
-       placed = true; 
+       if (boardPosition[0][0] == 0) 
+       {
+         boardPosition[0][0] = 2;
+         placed = true;
+       }
     }
   else if((boardPosition[2][2] == 1) && (boardPosition[2][1] == 1)) //i+f = c
     {
-       if (boardPosition[2][0] == 0) boardPosition[2][0] = 2;
-       placed = true; 
+       if (boardPosition[2][0] == 0) 
+       {
+         boardPosition[2][0] = 2;
+         placed = true;
+       }
     }
   else if((boardPosition[2][2] == 1) && (boardPosition[1][1] == 1)) //i+e = a
     {
-       if (boardPosition[0][0] == 0) boardPosition[0][0] = 2;
-       placed = true; 
+       if (boardPosition[0][0] == 0) 
+       {
+         boardPosition[0][0] = 2;
+         placed = true;
+       }
     }
 }
 
@@ -407,6 +507,7 @@ bool checkBoardDiagonalRight(vector <vector <int> > & boardPosition, bool & game
       return gameOver = true;
     } 
 }
+
 
 
 
