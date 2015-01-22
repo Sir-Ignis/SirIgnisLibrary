@@ -6,7 +6,7 @@ void printBoard(vector <vector <int> > & boardPosition);
 void checkMove(vector <vector <int> > & boardPosition, unsigned int row, unsigned int column);
 
 bool getPlayerMove(vector <vector <int> > & boardPosition);
-bool getComputerMove(vector <vector <int> > & boardPosition, bool placed);
+bool getComputerMove(vector <vector <int> > & boardPosition, bool & placed);
 void computerAI(vector <vector <int> > & boardPosition, bool & placed);
 
 bool checkBoardColumnOne(vector <vector <int> > & boardPosition, bool & gameOver, bool & player);
@@ -141,8 +141,10 @@ bool getPlayerMove(vector <vector <int> > & boardPosition)
   boardPosition[row][column] = 1;
 }
 
-bool getComputerMove(vector <vector <int> > & boardPosition, bool placed)
+bool getComputerMove(vector <vector <int> > & boardPosition, bool & placed)
 {
+  placed = false;
+
   computerAI(boardPosition, placed);
 
   if (placed == false)
@@ -405,5 +407,6 @@ bool checkBoardDiagonalRight(vector <vector <int> > & boardPosition, bool & game
       return gameOver = true;
     } 
 }
+
 
 
