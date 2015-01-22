@@ -114,13 +114,9 @@ bool checkIfBoardFull(vector <vector <int> > & boardPosition, bool & gameOver)
 {
   unsigned short int row, column, filled = 0;
 
-  for (row = 0, column = 0; (column != 2) & (row != 2); row++)
+  for (row = 0, column = 0; row < 3; row++)
     {
-      if(boardPosition[row][column] != 0)
-	{
-          filled++;
-	}
-      for (;column != 2; column++)
+      for (column = 0;column < 3; column++)
 	{
           if(boardPosition[row][column] != 0)
 	  {
@@ -128,7 +124,7 @@ bool checkIfBoardFull(vector <vector <int> > & boardPosition, bool & gameOver)
 	  }
 	}
     }
-  if(filled = 9)
+  if(filled == 9)
     {
       return gameOver = true;
     }
@@ -507,6 +503,7 @@ bool checkBoardDiagonalRight(vector <vector <int> > & boardPosition, bool & game
       return gameOver = true;
     } 
 }
+
 
 
 
