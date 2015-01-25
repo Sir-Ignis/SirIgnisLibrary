@@ -3,10 +3,10 @@
 using namespace std;
 
 void printBoard(vector <vector <int> > & boardPosition);
-void checkMove(vector <vector <int> > & boardPosition, unsigned int row, unsigned int column);
+bool checkMove(vector <vector <int> > & boardPosition, unsigned int row, unsigned int column, bool & moveValid);
 bool checkIfBoardFull(vector <vector <int> > & boardPosition, bool & gameOver, bool & tie);
 
-bool getPlayerMove(vector <vector <int> > & boardPosition);
+bool getPlayerMove(vector <vector <int> > & boardPosition, bool moveValid);
 bool getComputerMove(vector <vector <int> > & boardPosition, bool & placed);
 void computerAI(vector <vector <int> > & boardPosition, bool & placed);
 
@@ -29,13 +29,14 @@ int main()
   bool player = 1;
   bool placed = false;
   bool tie = false;
+  bool moveValid = false;
 
   unsigned short int move;
 
   do
     {
       printBoard(boardPosition);
-      getPlayerMove(boardPosition);
+      getPlayerMove(boardPosition, moveValid);
 
       checkBoardColumnOne(boardPosition,gameOver, player);
       if(gameOver == true) break;
@@ -167,21 +168,24 @@ bool checkIfBoardFull(vector <vector <int> > & boardPosition, bool & gameOver, b
     }
 }
 
-void checkMove(vector <vector <int> > & boardPosition, unsigned int row, unsigned int column)
+bool checkMove(vector <vector <int> > & boardPosition, unsigned int row, unsigned int column, bool & moveValid)
 {
   if(boardPosition[row][column] == 2)
     {
       cout << "There is already an opponents piece here!" << endl;
-      getPlayerMove(boardPosition);
+      getPlayerMove(boardPosition, moveValid);
+      moveValid = false;
     }
   else if(boardPosition[row][column] == 1)
     {
       cout << "You have already placed a piece here!" << endl;
-      getPlayerMove(boardPosition);
+      getPlayerMove(boardPosition, moveValid);
+      moveValid = false;
     }
+  return moveValid = true;
 }
 
-bool getPlayerMove(vector <vector <int> > & boardPosition)
+bool getPlayerMove(vector <vector <int> > & boardPosition, bool moveValid)
 {
   unsigned int row, column;
 
@@ -197,8 +201,12 @@ bool getPlayerMove(vector <vector <int> > & boardPosition)
   if( (row < 0 || row > 2) || (column < 0 || column > 2) ) cout << "Error!" << endl;
     }
   while( (row < 0 || row > 2) || (column < 0 || column > 2) );
-  checkMove(boardPosition, row, column);
+  checkMove(boardPosition, row, column, moveValid);
+  
+  if(moveValid == true)
+    {
   boardPosition[row][column] = 1;
+    }
 }
 
 bool getComputerMove(vector <vector <int> > & boardPosition, bool & placed)
@@ -223,9 +231,9 @@ bool getComputerMove(vector <vector <int> > & boardPosition, bool & placed)
 
   else if (boardPosition[0][2] == 0) boardPosition[0][2] = 2;
 
-  else if (boardPosition[2][0] == 0) boardPosition[2][0] = 2;
-
   else if (boardPosition[2][2] == 0) boardPosition[2][2] = 2;
+
+  else if (boardPosition[2][0] == 0) boardPosition[2][0] = 2;
     }
 }
 
@@ -544,6 +552,7 @@ bool checkBoardDiagonalRight(vector <vector <int> > & boardPosition, bool & game
       return gameOver = true;
     } 
 }
+
 
 
 
