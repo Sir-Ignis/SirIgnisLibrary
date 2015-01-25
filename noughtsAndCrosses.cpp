@@ -4,7 +4,7 @@ using namespace std;
 
 void printBoard(vector <vector <int> > & boardPosition);
 void checkMove(vector <vector <int> > & boardPosition, unsigned int row, unsigned int column);
-bool checkIfBoardFull(vector <vector <int> > & boardPosition, bool & gameOver);
+bool checkIfBoardFull(vector <vector <int> > & boardPosition, bool & gameOver, bool & tie);
 
 bool getPlayerMove(vector <vector <int> > & boardPosition);
 bool getComputerMove(vector <vector <int> > & boardPosition, bool & placed);
@@ -28,6 +28,8 @@ int main()
   bool gameOver = false;
   bool player = 1;
   bool placed = false;
+  bool tie = false;
+
   unsigned short int move;
 
   do
@@ -85,7 +87,8 @@ int main()
       checkBoardDiagonalRight(boardPosition,gameOver, player);
       if(gameOver == true) break;
 
-      checkIfBoardFull(boardPosition, gameOver);
+      checkIfBoardFull(boardPosition, gameOver, tie);
+      if(tie == true) break;
     }
   while(gameOver == false);
 
@@ -98,6 +101,10 @@ int main()
   else if ((gameOver == true) && (player == 0))
     {
       cout << "Hahaha! I won!" << endl;
+    }
+  else if (tie == true)
+    {
+      cout << "It's a tie!" << endl;
     }
   return 0;    
 }
@@ -136,7 +143,7 @@ void printBoard(vector <vector <int> > & boardPosition)
   cout << "\n\n";
 }
 
-bool checkIfBoardFull(vector <vector <int> > & boardPosition, bool & gameOver)
+bool checkIfBoardFull(vector <vector <int> > & boardPosition, bool & gameOver, bool & tie)
 {
   unsigned short int row, column, filled = 0;
 
@@ -152,7 +159,7 @@ bool checkIfBoardFull(vector <vector <int> > & boardPosition, bool & gameOver)
     }
   if(filled == 9)
     {
-      return gameOver = true;
+      return tie = true;
     }
   else
     {
@@ -529,6 +536,7 @@ bool checkBoardDiagonalRight(vector <vector <int> > & boardPosition, bool & game
       return gameOver = true;
     } 
 }
+
 
 
 
