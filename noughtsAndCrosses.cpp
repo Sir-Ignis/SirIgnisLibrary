@@ -182,7 +182,10 @@ bool checkMove(vector <vector <int> > & boardPosition, unsigned int row, unsigne
       getPlayerMove(boardPosition, moveValid);
       moveValid = false;
     }
-  return moveValid = true;
+  else if(boardPosition[row][column] == 0)
+    {
+      return moveValid = true;
+    }
 }
 
 bool getPlayerMove(vector <vector <int> > & boardPosition, bool moveValid)
@@ -552,6 +555,7 @@ bool checkBoardDiagonalRight(vector <vector <int> > & boardPosition, bool & game
       return gameOver = true;
     } 
 }
+
 
 
 
