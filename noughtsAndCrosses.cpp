@@ -36,28 +36,54 @@ int main()
       getPlayerMove(boardPosition);
 
       checkBoardColumnOne(boardPosition,gameOver, player);
+      if(gameOver == true) break;
+
       checkBoardColumnTwo(boardPosition,gameOver, player);
+      if(gameOver == true) break;
+
       checkBoardColumnThree(boardPosition,gameOver, player);
+      if(gameOver == true) break;
 
       checkBoardRowOne(boardPosition,gameOver, player);
+      if(gameOver == true) break;
+
       checkBoardRowTwo(boardPosition,gameOver, player);
+      if(gameOver == true) break;
+
       checkBoardRowThree(boardPosition,gameOver, player);
+      if(gameOver == true) break;
 
       checkBoardDiagonalLeft(boardPosition,gameOver, player);
+      if(gameOver == true) break;
+
       checkBoardDiagonalRight(boardPosition,gameOver, player);
+      if(gameOver == true) break;
      
       getComputerMove(boardPosition, placed);
 
       checkBoardColumnOne(boardPosition,gameOver, player);
+      if(gameOver == true) break;
+
       checkBoardColumnTwo(boardPosition,gameOver, player);
+      if(gameOver == true) break;
+
       checkBoardColumnThree(boardPosition,gameOver, player);
+      if(gameOver == true) break;
 
       checkBoardRowOne(boardPosition,gameOver, player);
+      if(gameOver == true) break;
+
       checkBoardRowTwo(boardPosition,gameOver, player);
+      if(gameOver == true) break;
+
       checkBoardRowThree(boardPosition,gameOver, player);
+      if(gameOver == true) break;
 
       checkBoardDiagonalLeft(boardPosition,gameOver, player);
+      if(gameOver == true) break;
+
       checkBoardDiagonalRight(boardPosition,gameOver, player);
+      if(gameOver == true) break;
 
       checkIfBoardFull(boardPosition, gameOver);
     }
@@ -503,6 +529,7 @@ bool checkBoardDiagonalRight(vector <vector <int> > & boardPosition, bool & game
       return gameOver = true;
     } 
 }
+
 
 
 
