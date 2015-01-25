@@ -296,9 +296,9 @@ void computerAI(vector <vector <int> > & boardPosition, bool & placed)
     }
   else if((boardPosition[0][0] == 1) && (boardPosition[2][0] == 1)) //a+c = b
     {
-       if (boardPosition[0][1] == 0) 
+       if (boardPosition[1][0] == 0) 
        {
-         boardPosition[0][1] = 2;
+         boardPosition[1][0] = 2;
          placed = true;
        }
     }
@@ -371,6 +371,14 @@ void computerAI(vector <vector <int> > & boardPosition, bool & placed)
        if (boardPosition[2][0] == 0) 
        {
          boardPosition[2][0] = 2;
+         placed = true;
+       } 
+    }
+  else if((boardPosition[0][2] == 1) && (boardPosition[2][2] == 1)) //g+i = h
+    {
+       if (boardPosition[1][2] == 0) 
+       {
+         boardPosition[1][2] = 2;
          placed = true;
        } 
     }
@@ -536,6 +544,7 @@ bool checkBoardDiagonalRight(vector <vector <int> > & boardPosition, bool & game
       return gameOver = true;
     } 
 }
+
 
 
 
