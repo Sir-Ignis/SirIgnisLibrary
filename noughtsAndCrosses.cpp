@@ -1,5 +1,7 @@
 #include <iostream>
 #include <vector>
+#include <stdlib.h>
+
 using namespace std;
 
 void printBoard(vector <vector <int> > & boardPosition);
@@ -21,6 +23,9 @@ bool checkBoardRowThree(vector <vector <int> > & boardPosition, bool & gameOver,
 bool checkBoardDiagonalLeft(vector <vector <int> > & boardPosition, bool & gameOver, bool & player);
 bool checkBoardDiagonalRight(vector <vector <int> > & boardPosition, bool & gameOver, bool & player);
 
+void printMenu();
+bool help(bool & cycle);
+bool checkOption(bool & cycle);
 
 int main()
 {
@@ -30,9 +35,18 @@ int main()
   bool placed = false;
   bool tie = false;
   bool moveValid = false;
+  bool cycle = 0;
 
   unsigned short int move;
 
+  if(cycle == 0)
+    {
+  printMenu();
+  checkOption(cycle);
+    }
+
+  if(cycle == 1)
+    {
   do
     {
       printBoard(boardPosition);
@@ -92,6 +106,7 @@ int main()
       if(tie == true) break;
     }
   while(gameOver == false);
+    }
 
   printBoard(boardPosition);
 
@@ -108,6 +123,59 @@ int main()
       cout << "It's a tie!" << endl;
     }
   return 0;    
+}
+
+void printMenu()
+{
+  cout << "\n\n";
+  cout << "---Menu---" << endl;
+  cout << "\n";
+  cout << "Play (1) - starts the game" << endl;
+  cout << "Help (2) - tells you the instruction of the game" << endl;
+  cout << "Exit (3) - exits the game" << endl;
+  cout << "\n\n";
+}
+
+bool help(bool & cycle)
+{
+  cout << "\n";
+  cout << "HOW TO PLAY:" << endl;
+  cout << "1.When prompted to place a piece enter a number from 0-2 for the row and column." << endl;
+  cout << "2.The board is as follows:" << endl;
+  cout << "\n\n";
+  cout << "    0    1    2" << endl;
+  cout << "0| 0,0 |0,1| 0,2|" << endl;
+  cout << "1| 1,0 |1,1| 1,2|" << endl;
+  cout << "2| 2,0 |2,1| 2,2|" << endl;
+  cout << "\n\n";
+  cout << "3. If you are told you cannot place a piece in the position you chose you must " << endl;
+  cout << "choose another position from 0-2 for both column and row" << endl;
+  cout << "4. The AIM of the game is to have three of your (X) pieces in a row" << endl;
+  cout << "\n";
+  return cycle = 1;
+}
+
+bool checkOption(bool & cycle)
+{
+  unsigned short int option;
+
+  cout << "\n\n";
+  cout << "Option: ";
+  cin >> option;
+
+  if(option == 1)
+    {
+      return cycle = 1;
+    } 
+  else if(option == 2)
+    {
+      help(cycle);
+    } 
+  else if(option == 3)
+    {
+      cout << "\n";
+      exit;
+    }
 }
 
 // sexy print board functions are property of nnemesis
@@ -148,7 +216,7 @@ bool checkIfBoardFull(vector <vector <int> > & boardPosition, bool & gameOver, b
 {
   unsigned short int row, column, filled = 0;
 
-  for (row = 0, column = 0; row < 3; row++)
+  for (row = 0; row < 3; row++)
     {
       for (column = 0;column < 3; column++)
 	{
@@ -555,6 +623,7 @@ bool checkBoardDiagonalRight(vector <vector <int> > & boardPosition, bool & game
       return gameOver = true;
     } 
 }
+
 
 
 
