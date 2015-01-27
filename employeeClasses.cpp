@@ -16,7 +16,6 @@ private:
   void setYearsOfService(unsigned int yearsOfService);
   void setAge(unsigned int age);
   void setSalary(unsigned int salary);
-  void setRoundedSalary(unsigned int salary);
 
   unsigned int itsYearsOfService;
   unsigned int itsAge;
@@ -50,15 +49,6 @@ void Employee::setSalary(unsigned int salary)
   itsSalary = salary;
 }
 
-void Employee::setRoundedSalary(unsigned int salary)
-{
-  unsigned int temp;
-  temp = salary+500;
-  temp = temp / 1000;
-  salary = temp*1000;
-  itsRoundedSalary= salary;
-}
-
 unsigned int Employee::getYearsOfService()
 {
   return itsYearsOfService;
@@ -76,7 +66,11 @@ unsigned int Employee::getSalary()
 
 unsigned int Employee::getRoundedSalary()
 {
-  return itsRoundedSalary;
+  unsigned int temp = 0;
+  temp = (itsSalary+500);
+  itsSalary = temp / 1000;
+  temp = itsSalary*1000;
+  return itsRoundedSalary= temp; 
 }
 
 int main()
@@ -99,11 +93,12 @@ int main()
   cout << "You have been working for " << Smith.getYearsOfService() << " years." << endl;
   cout << "You are " << Smith.getAge() << " years old." << endl;
 
-  std::cout << "You earn $" << Smith.getSalary() << " per year." << endl;
+  std::cout << "You earn $" << Smith.getRoundedSalary() << " per year." << endl;
 
   cout << "\n";  
 
   return 0;
 }
+
 
 
