@@ -55,7 +55,8 @@ void Employee::setRoundedSalary(unsigned int salary)
   unsigned int temp;
   temp = salary+500;
   temp = temp / 1000;
-  itsSalary= temp*1000;
+  salary = temp*1000;
+  itsRoundedSalary= salary;
 }
 
 unsigned int Employee::getYearsOfService()
@@ -104,4 +105,5 @@ int main()
 
   return 0;
 }
+
 
